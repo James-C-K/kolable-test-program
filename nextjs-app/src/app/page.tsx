@@ -1,10 +1,13 @@
 import { Navbar } from "@/components/Navbar";
 import { ProjectCard } from "@/components/ProjectCard";
 import { ProgramCard } from "@/components/ProgramCard";
-import { mockProjects, mockPrograms } from "@/lib/mockData";
+import { mockProjects } from "@/lib/mockData";
+import { getPrograms } from "@/lib/kolable";
 import { Rocket, GraduationCap, ChevronRight } from "lucide-react";
 
-export default function Home() {
+export default async function Home() {
+  const programs = await getPrograms();
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
@@ -78,7 +81,7 @@ export default function Home() {
               </button>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {mockPrograms.map((program) => (
+              {programs.map((program) => (
                 <ProgramCard key={program.id} program={program} />
               ))}
             </div>
