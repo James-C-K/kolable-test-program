@@ -1,7 +1,7 @@
-const AUTH_URL = 'https://xuemi.kolable.dev/api/v1/auth/token';
-const GRAPHQL_URL = 'https://rhdb-dev.kolable.com/v1/graphql';
-const CLIENT_ID = 'xuemi_1538003';
-const CLIENT_KEY = 'uAHRBsrHvNSxkHhQhbnm4VRbWdhh7sE9';
+const AUTH_URL = process.env.KOLABLE_AUTH_URL!;
+const GRAPHQL_URL = process.env.KOLABLE_GRAPHQL_URL!;
+const CLIENT_ID = process.env.KOLABLE_CLIENT_ID!;
+const CLIENT_KEY = process.env.KOLABLE_CLIENT_KEY!;
 
 async function getAuthToken(): Promise<string> {
   const res = await fetch(AUTH_URL, {
